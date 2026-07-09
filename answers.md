@@ -70,7 +70,8 @@ To sort by Score (Descending) with a tie-breaker of Joining Order (Ascending), y
 [1]
 [1, 2]
 [3]
-[1, 2, 4]
+[1, 2, 4] 
+```
 
 When is a def line's default value evaluated? Default parameter values are evaluated exactly once, from left to right, when the function definition is executed.
 
@@ -86,9 +87,9 @@ False
 --- Chunks Generator ---
 [[0, 1, 2], [3, 4, 5], [6]]
 
- ## Q.7 Pending
+## Q.7 Pending
 
- ## Q.8 
+## Q.8 
 
  ### Q1. If the block raises an exception, does your `__exit__` still run?
 
@@ -100,11 +101,11 @@ Returning `True` tells Python that the exception has been handled, so it suppres
 
 If `__exit__` returns `False` (or `None`), Python re-raises the exception after `__exit__` finishes executing.
 
-##Q.9
+## Q.9
 
 -----------
 
-##Q.10
+## Q.10
 
 ### Q. What does random.shuffle() require of its argument?
 random.shuffle() requires a mutable sequence. It must support getting items by index, assigning items by index, and reporting its length so that elements can be swapped during shuffling.
@@ -113,11 +114,11 @@ random.shuffle() requires a mutable sequence. It must support getting items by i
 I referred to the Python standard library documentation for the random module, which states that random.shuffle() shuffles a mutable sequence in place. From this requirement, I implemented the necessary special methods (__len__, __getitem__, and __setitem__) in the Deck class.
 
 
-###Q.11
+## Q.11
 
 
 
-### Q.12
+## Q.12
 ### Q1. When do `try`, `except`, `else`, and `finally` run?
 
 - **try:** Runs first and contains the code that may raise an exception.
@@ -130,8 +131,8 @@ I referred to the Python standard library documentation for the random module, w
 The `raise ... from e` syntax is used for **exception chaining**. It raises a new exception while preserving the original exception as its cause. This makes debugging easier because the traceback shows both the custom `ConfigError` and the original exception (such as `FileNotFoundError` or `JSONDecodeError`).
 
 
-###Q.13
-## Q1. What problem do virtual environments solve?
+## Q.13
+### Q1. What problem do virtual environments solve?
 
 Virtual environments isolate a project's Python interpreter and installed packages from other projects. This prevents dependency and version conflicts, allowing different projects to use different versions of the same package without affecting each other.
 
@@ -141,8 +142,8 @@ pip freeze lists every installed package in the current environment, including i
 A handwritten requirements.txt usually includes only the packages that the project directly depends on, making it cleaner and easier to maintain.
 
 
-### Q.14
-## Q1. What does `if __name__ == "__main__":` actually check?
+## Q.14
+### Q1. What does `if __name__ == "__main__":` actually check?
 
 Every Python module has a built-in variable called `__name__`. When a file is run directly, Python sets `__name__` to `"__main__"`. When the file is imported as a module, `__name__` is set to the module's name instead. Therefore, code inside `if __name__ == "__main__":` runs only when the file is executed directly, not when it is imported.
 
@@ -154,8 +155,9 @@ def greet():
 
 if __name__ == "__main__":
     greet()
+```
 
-##Q2. Q2. Why is modifying sys.path a code smell?
+### Q2. Why is modifying sys.path a code smell?
 Modifying sys.path manually makes imports depend on runtime path changes, which reduces portability and makes projects harder to maintain. A better approach is to organize code into packages using __init__.py, allowing Python to resolve imports naturally through the package structure.
 
 # Bad
